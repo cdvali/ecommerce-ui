@@ -1,0 +1,23 @@
+<h2>{{ isEditMode ? 'Edit' : 'Create' }} Product</h2>
+
+<form (submit)="saveProduct()" class="product-form">
+  <!-- Name Field -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput [(ngModel)]="product.name" name="name" required>
+    <mat-error *ngIf="!product.name">Name is required</mat-error>
+  </mat-form-field>
+
+  <!-- Price Field -->
+  <mat-form-field appearance="fill" class="full-width">
+    <mat-label>Price</mat-label>
+    <input matInput [(ngModel)]="product.price" name="price" type="number" required>
+    <mat-error *ngIf="!product.price">Price is required</mat-error>
+  </mat-form-field>
+
+  <!-- Buttons -->
+  <div class="form-actions">
+    <button mat-raised-button color="primary" type="submit">{{ isEditMode ? 'Update' : 'Save' }}</button>
+    <button mat-button [routerLink]="'/products'" type="button">Cancel</button>
+  </div>
+</form>

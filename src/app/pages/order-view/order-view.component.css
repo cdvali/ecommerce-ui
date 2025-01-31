@@ -1,0 +1,10 @@
+mat-card {
+    max-width: 500px;
+    margin: auto;
+    padding: 16px;
+    text-align: left;
+}
+
+button {
+    margin-bottom: 20px;
+  }

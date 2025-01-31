@@ -1,0 +1,24 @@
+/* Create space between Product Select and Quantity */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;  /* Space between Select Product and Quantity */
+  }
+  
+  .half-width {
+    flex: 1;
+    min-width: 200px;  /* Ensures the fields are not too small */
+  }
+  
+  /* Style the action buttons section */
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px; /* Space between the buttons */
+    margin-top: 20px;
+  }
+  
+  .action-buttons button {
+    min-width: 120px;
+  }
+  

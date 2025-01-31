@@ -1,0 +1,42 @@
+<h2>Create Order</h2>
+
+<!-- Product Selection and Quantity on the same row -->
+<div class="form-row">
+  <!-- Product Selection -->
+  <mat-form-field appearance="fill" class="half-width">
+    <mat-label>Select Product</mat-label>
+    <mat-select [(ngModel)]="selectedProductId" required>
+      <mat-option *ngFor="let product of products" [value]="product.id">
+        {{ product.name }} - ${{ product.price }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Quantity Input -->
+  <mat-form-field appearance="fill" class="half-width">
+    <mat-label>Quantity</mat-label>
+    <input matInput type="number" [(ngModel)]="selectedQuantity" placeholder="Quantity" min="1" required>
+  </mat-form-field>
+</div>
+
+<!-- Add Button -->
+<button mat-raised-button color="primary" (click)="addProduct()" [disabled]="!selectedProductId || selectedQuantity < 1">Add</button>
+
+<!-- Selected Products List -->
+<h3>Selected Products</h3>
+<mat-list>
+  <mat-list-item *ngFor="let item of selectedProducts">
+    {{ item.productName }} - Quantity: {{ item.quantity }}
+    <button mat-icon-button color="warn" (click)="removeProduct(item.productId)">
+      <mat-icon>delete</mat-icon>
+    </button>
+  </mat-list-item>
+</mat-list>
+
+<!-- Action Buttons (Place Order and Cancel) -->
+<div class="action-buttons">
+  <button mat-raised-button color="accent" (click)="placeOrder()" [disabled]="selectedProducts.length === 0">
+    Save
+  </button>
+  <button mat-button [routerLink]="'/orders'" type="button">Cancel</button>
+</div>
